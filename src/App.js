@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { HashRouter, Link } from "react-router-dom";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Header from "./Components/Header/Header";
 import Form from "./Components/Form/Form";
@@ -10,21 +11,12 @@ class App extends Component {
     super();
     this.state = {
       products: [],
-      // products: [{
-      //   id: 1,
-      //   product_name: "Ham",
-      //   product_price: 100,
-      //   product_url: "10",
-      // },
-      // {
-      //   id: 2,
-      //   product_name: "Turkey",
-      //   product_price: 10,
-      //   product_url: "1",
-      // }]
+      placeholderText: ""
+  
     };
   }
   componentDidMount() {
+    this.setState({placeholderText: `Del from 1 and ${this.state.products.length}`})
     axios.get("/api/products").then(response => {
       this.setState({ products: response.data });
     });
@@ -32,13 +24,52 @@ class App extends Component {
 
   render() {
     console.log(this.state.products);
-    return ( <div className="App">
+
+//////////////////////////////////ROUTING BELOW COMMENT OUT IF BROKEN
+//     <HashRouter>
+//  <Switch>
+//     <header>
+//       <ul>
+//         <li>
+//           <Link to="/">Home</Link>
+//         </li>
+//         <li>
+//           <Link to="/about">About</Link>
+//         </li>
+//         <li>
+//           <Link to="/about/contact">Contact</Link>
+//           </li>
+//           <li>
+//             <Link to ="/Blah">404 View</Link>
+          
+//         </li>
+//         <li><Link to ="/store">Store</Link></li>
+//       </ul>
+//     </header>
+//     <main>
+
+//             {Routes}
+    
+//     </main>
+//     </Switch>
+//   </HashRouter>
+
+//////////////////////////ROUTING ABOVE COMMENT OUT IF BROKEN
+
+
+
+////////////////////////ORIGINAL CODE BELOW UNCOMMENT IF ROUTING BREAKS
+
+    return ( 
+    <div className="App">
     <div>
           <Header />
         </div>
      
         <div>
-          <Dashboard products={this.state.products} />
+          <Dashboard 
+          products={this.state.products}
+          placeholderText={this.state.placeholderText} />
         </div>
         <div>
           <Form />
@@ -46,6 +77,7 @@ class App extends Component {
 
       </div>
     );
+    //////////////////////////////////////////////ORIGINAL CODE ABOVE UNCOMMENT IF ROUTING BREAKS
   }
 }
 

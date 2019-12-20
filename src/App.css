@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App-logo {
@@ -35,4 +36,54 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+nav {
+  width: 100%;
+  background-color: #AB2A19 ;
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+.logo {
+  display: inline-block;
+}
+.navbar{
+  width: 99vw;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  font-family: 'Open Sans', sans-serif;
+  list-style: none;
+  display: flex;
+  justify-self: left;
+  margin-right: 30px;
+}
+
+.nav-item a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color:black;
+}
+
+.nav-item:hover {
+  background-color: white;
+}
+
+.nav-item:hover a {
+  color: darkgreen;
+}
+
+.logo img {
+  width: 175px;
+  vertical-align: middle;
+}
+
+.deletebutton{
+  width: 50vh;
+  margin-left: 32vw
 }
